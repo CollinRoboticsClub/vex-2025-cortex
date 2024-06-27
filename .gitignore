@@ -1,1 +1,5 @@
+# build outputs
+bin/
+
+# user-specific config
 .vscode/c_cpp_properties.json
