@@ -26,6 +26,10 @@
 #define MAIN_H_
 
 #include <API.h>
+//#region Collin Robotics Includes
+#include "subsystems/drivetrain.h"
+//#endregion Collin Robotics Includes
+
 
 // Allow usage of this file in C++ programs
 #ifdef __cplusplus
