@@ -24,5 +24,12 @@
  * so, the robot will await a switch to another mode or disable/enable cycle.
  */
 void autonomous() {
-    
+    printf("Entered autonomous task!\n");
+
+    for (int i = 10; i > 0; i--) {
+        printf("Counting down %d", i);
+        delay(1000);
+    }
+
+    delay(20);
 }
