@@ -3,3 +3,6 @@ bin/
 
 # user-specific config
 .vscode
+
+# VSCode C++ generates this
+compile_commands.json
