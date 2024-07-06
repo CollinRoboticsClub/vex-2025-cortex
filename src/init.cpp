@@ -1,4 +1,4 @@
-/** @file init.c
+/** @file init.cpp
  * @brief File for initialization code
  *
  * This file should contain the user initialize() function and any functions related to it.
@@ -9,8 +9,8 @@
 
 #include "constants.h"
 #include "main.h"
-#include "subsystems/drivetrain.h"
-#include "subsystems/elevator.h"
+#include "subsystems/drivetrain.hpp"
+#include "subsystems/elevator.hpp"
 
 /*
  * Runs pre-initialization code. This function will be started in kernel mode one time while the
@@ -38,21 +38,17 @@ void initializeIO()
  * can be implemented in this task if desired.
  */
 
-Drivetrain drivetrain;
-Elevator elevator;
+Drivetrain drivetrain = Drivetrain(
+	DRIVETRAIN_FRONT_LEFT_PIN,
+	DRIVETRAIN_FRONT_RIGHT_PIN,
+	DRIVETRAIN_BACK_LEFT_PIN,
+	DRIVETRAIN_BACK_RIGHT_PIN);
+;
+Elevator elevator = Elevator(
+	ELEVATOR_MOTOR_PIN,
+	ELEVATOR_TOP_LIMIT_SWITCH,
+	ELEVATOR_BOTTOM_LIMIT_SWITCH);
 
 void initialize()
 {
-	initDrivetrain(
-		&drivetrain,
-		DRIVETRAIN_FRONT_LEFT_PIN,
-		DRIVETRAIN_FRONT_RIGHT_PIN,
-		DRIVETRAIN_BACK_LEFT_PIN,
-		DRIVETRAIN_BACK_RIGHT_PIN);
-
-	initElevator(
-		&elevator,
-		ELEVATOR_MOTOR_PIN,
-		ELEVATOR_TOP_LIMIT_SWITCH,
-		ELEVATOR_BOTTOM_LIMIT_SWITCH);
 }

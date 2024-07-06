@@ -1,4 +1,4 @@
-/** @file auto.c
+/** @file auto.cpp
  * @brief File for autonomous code
  *
  * This file should contain the user autonomous() function and any functions related to it.
@@ -9,7 +9,7 @@
 
 #include "constants.h"
 #include "main.h"
-#include "subsystems/drivetrain.h"
+#include "subsystems/drivetrain.hpp"
 
 /*
  * Runs the user autonomous code. This function will be started in its own task with the default
@@ -37,15 +37,15 @@ void autonomous()
 		printf("LOOP ITER %d\n", i);
 
 		printf("\tDriving forwards\n");
-		arcadeDrive(&drivetrain, DRIVETRAIN_MAX_POWER, 0);
+		drivetrain.arcadeDrive(DRIVETRAIN_MAX_POWER, 0);
 		delay(2000);
-		arcadeDrive(&drivetrain, 0, 0);
+		drivetrain.arcadeDrive(0, 0);
 		delay(500);
 
 		printf("\tTurning right\n");
-		arcadeDrive(&drivetrain, 0, DRIVETRAIN_MAX_POWER);
+		drivetrain.arcadeDrive(0, DRIVETRAIN_MAX_POWER);
 		delay(2000);
-		arcadeDrive(&drivetrain, 0, 0);
+		drivetrain.arcadeDrive(0, 0);
 		delay(500);
 	}
 

@@ -1,4 +1,4 @@
-/** @file opcontrol.c
+/** @file opcontrol.cpp
  * @brief File for operator control code
  *
  * This file should contain the user operatorControl() function and any functions related to it.
@@ -27,8 +27,8 @@
 
 #include "constants.h"
 #include "main.h"
-#include "subsystems/drivetrain.h"
-#include "subsystems/elevator.h"
+#include "subsystems/drivetrain.hpp"
+#include "subsystems/elevator.hpp"
 
 void operatorControlMessageTask(void *parameter)
 {
@@ -56,7 +56,7 @@ void operatorControl()
 		int rightPower = joystickGetAnalog(1, 2);
 
 		// Using tank drive for debugging purposes -- helps with wiring and direction reversal issues (as opposed to arcade drive)
-		tankDrive(&drivetrain, leftPower, rightPower);
+		drivetrain.tankDrive(leftPower, rightPower);
 #pragma endregion Drivetrain
 
 #pragma region Elevator
@@ -64,11 +64,11 @@ void operatorControl()
 		bool elevatorDownButtonPressed = joystickGetDigital(1, 8, JOY_DOWN);
 
 		if (elevatorUpButtonPressed)
-			set(&elevator, ELEVATOR_MAX_POWER);
+			elevator.set(ELEVATOR_MAX_POWER);
 		else if (elevatorDownButtonPressed)
-			set(&elevator, -ELEVATOR_MAX_POWER);
+			elevator.set(-ELEVATOR_MAX_POWER);
 		else
-			set(&elevator, 0);
+			elevator.set(0);
 #pragma endregion Elevator
 		delay(20);
 	}
