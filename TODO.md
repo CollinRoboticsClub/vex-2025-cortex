@@ -2,6 +2,7 @@
 
 - autonomous WITH IMEs
   - https://pros.cs.purdue.edu/cortex/tutorials/i2c.html#vex-integrated-motor-encoder-ime
+  - https://pros.cs.purdue.edu/cortex/tutorials/i2c.html#third-party-i2c-devices
   - path following time 🤓🤓🤓
     - Consider looking into LemLib or OkapiLib?
     - https://lemlib.readthedocs.io/en/stable/index.html
