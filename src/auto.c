@@ -8,6 +8,7 @@
  */
 
 #include "main.h"
+#include "subsystems/drivetrain.h"
 
 /*
  * Runs the user autonomous code. This function will be started in its own task with the default
@@ -23,13 +24,30 @@
  * The autonomous task may exit, unlike operatorControl() which should never exit. If it does
  * so, the robot will await a switch to another mode or disable/enable cycle.
  */
-void autonomous() {
-    printf("Entered autonomous task!\n");
+extern Drivetrain drivetrain;
 
-    for (int i = 10; i > 0; i--) {
-        printf("Counting down %d", i);
-        delay(1000);
-    }
+void autonomous()
+{
+	printf("Entered autonomous task!\n");
+	printf("Driving in a square! :)\n");
 
-    delay(20);
+	for (int i = 0; i < 4; i++)
+	{
+		printf("LOOP ITER %d\n", i);
+
+		printf("\tDriving forwards\n");
+		arcadeDrive(&drivetrain, 127, 0);
+		delay(2000);
+		arcadeDrive(&drivetrain, 0, 0);
+		delay(500);
+
+		printf("\tTurning right\n");
+		arcadeDrive(&drivetrain, 0, 127);
+		delay(2000);
+		arcadeDrive(&drivetrain, 0, 0);
+		delay(500);
+	}
+
+	// Make sure you're not starving tasks!
+	delay(20);
 }
