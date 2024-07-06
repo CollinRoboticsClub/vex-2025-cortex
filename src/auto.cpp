@@ -7,7 +7,7 @@
  * obtained from http://sourceforge.net/projects/freertos/files/ or on request.
  */
 
-#include "constants.h"
+#include "constants.hpp"
 #include "main.h"
 #include "subsystems/drivetrain.hpp"
 

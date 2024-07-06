@@ -25,7 +25,7 @@
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
 
-#include "constants.h"
+#include "constants.hpp"
 #include "main.h"
 #include "subsystems/drivetrain.hpp"
 #include "subsystems/elevator.hpp"
@@ -34,8 +34,9 @@ void operatorControlMessageTask(void *parameter)
 {
 	while (true)
 	{
-		printf("In teleop :) Plug in a joystick! Uses Tank drive controls.\n");
-		printf("You can also press the Up and Down buttons in Group 8 (right side cluster) for Elevator up/down\n");
+		printf(
+			"In teleop :) Plug in a joystick! Uses Tank drive controls.\n"
+			"You can also press the Up and Down buttons in Group 8 (right side cluster) for Elevator up/down\n");
 		delay(1000);
 	}
 }
@@ -70,6 +71,8 @@ void operatorControl()
 		else
 			elevator.set(0);
 #pragma endregion Elevator
+
+		// Make sure to give other tasks time to run :)
 		delay(20);
 	}
 }

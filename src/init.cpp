@@ -7,10 +7,11 @@
  * obtained from http://sourceforge.net/projects/freertos/files/ or on request.
  */
 
-#include "constants.h"
+#include "constants.hpp"
 #include "main.h"
 #include "subsystems/drivetrain.hpp"
 #include "subsystems/elevator.hpp"
+#include <API.h>
 
 /*
  * Runs pre-initialization code. This function will be started in kernel mode one time while the
@@ -38,13 +39,13 @@ void initializeIO()
  * can be implemented in this task if desired.
  */
 
-Drivetrain drivetrain = Drivetrain(
+Drivetrain drivetrain(
 	DRIVETRAIN_FRONT_LEFT_PIN,
 	DRIVETRAIN_FRONT_RIGHT_PIN,
 	DRIVETRAIN_BACK_LEFT_PIN,
 	DRIVETRAIN_BACK_RIGHT_PIN);
-;
-Elevator elevator = Elevator(
+
+Elevator elevator(
 	ELEVATOR_MOTOR_PIN,
 	ELEVATOR_TOP_LIMIT_SWITCH,
 	ELEVATOR_BOTTOM_LIMIT_SWITCH);

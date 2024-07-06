@@ -26,8 +26,6 @@
 #define MAIN_H_
 
 #include <API.h>
-// I hope you like your booleans:
-#include <stdbool.h>
 
 // Allow usage of this file in C++ programs
 #ifdef __cplusplus
