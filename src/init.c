@@ -7,8 +7,8 @@
  * obtained from http://sourceforge.net/projects/freertos/files/ or on request.
  */
 
-#include "main.h"
 #include "constants.h"
+#include "main.h"
 #include "subsystems/drivetrain.h"
 #include "subsystems/elevator.h"
 

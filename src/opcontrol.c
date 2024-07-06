@@ -25,8 +25,8 @@
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
 
-#include "main.h"
 #include "constants.h"
+#include "main.h"
 #include "subsystems/drivetrain.h"
 #include "subsystems/elevator.h"
 
