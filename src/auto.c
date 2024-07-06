@@ -8,6 +8,7 @@
  */
 
 #include "main.h"
+#include "constants.h"
 #include "subsystems/drivetrain.h"
 
 /*
@@ -36,13 +37,13 @@ void autonomous()
 		printf("LOOP ITER %d\n", i);
 
 		printf("\tDriving forwards\n");
-		arcadeDrive(&drivetrain, 127, 0);
+		arcadeDrive(&drivetrain, DRIVETRAIN_MAX_POWER, 0);
 		delay(2000);
 		arcadeDrive(&drivetrain, 0, 0);
 		delay(500);
 
 		printf("\tTurning right\n");
-		arcadeDrive(&drivetrain, 0, 127);
+		arcadeDrive(&drivetrain, 0, DRIVETRAIN_MAX_POWER);
 		delay(2000);
 		arcadeDrive(&drivetrain, 0, 0);
 		delay(500);

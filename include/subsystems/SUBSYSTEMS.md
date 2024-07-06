@@ -29,4 +29,6 @@ void set(int power);
 void set(int power); // with limit switches automatically stopping it if hit
 bool isTouchingTop();
 bool isTouchingBottom();
+// Consider a task that semi-autonomously starts moving the lift until the limit switch is hit
+//  OR when user input interrupts it (for manual override).
 ```

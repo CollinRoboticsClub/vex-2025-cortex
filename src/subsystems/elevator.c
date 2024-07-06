@@ -13,7 +13,14 @@ void initElevator(Elevator *elevator, int motorPin, int topLimitSwitchPin, int b
 
 void set(Elevator *elevator, int power)
 {
-    motorSet(elevator->motorPin, power);
+    bool shouldntMove =
+        (isTouchingTop(elevator) && power > 0) ||
+        (isTouchingBottom(elevator) && power < 0);
+
+    if (shouldntMove)
+        motorSet(elevator->motorPin, 0);
+    else
+        motorSet(elevator->motorPin, power);
 }
 
 bool isTouchingTop(Elevator *elevator)

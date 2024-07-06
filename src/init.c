@@ -8,8 +8,9 @@
  */
 
 #include "main.h"
-#include "pin_mappings.h"
+#include "constants.h"
 #include "subsystems/drivetrain.h"
+#include "subsystems/elevator.h"
 
 /*
  * Runs pre-initialization code. This function will be started in kernel mode one time while the
@@ -21,8 +22,6 @@
  */
 void initializeIO()
 {
-	pinMode(ELEVATOR_LOWER_LIMIT_SWITCH, INPUT);
-	pinMode(ELEVATOR_UPPER_LIMIT_SWITCH, INPUT);
 }
 
 /*
@@ -40,6 +39,7 @@ void initializeIO()
  */
 
 Drivetrain drivetrain;
+Elevator elevator;
 
 void initialize()
 {
@@ -49,4 +49,10 @@ void initialize()
 		DRIVETRAIN_FRONT_RIGHT_PIN,
 		DRIVETRAIN_BACK_LEFT_PIN,
 		DRIVETRAIN_BACK_RIGHT_PIN);
+
+	initElevator(
+		&elevator,
+		ELEVATOR_MOTOR_PIN,
+		ELEVATOR_TOP_LIMIT_SWITCH,
+		ELEVATOR_BOTTOM_LIMIT_SWITCH);
 }
