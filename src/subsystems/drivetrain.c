@@ -1,24 +1,24 @@
+#include "main.h"
 #include "drivetrain.h"
 
-
-
-Drivetrain createDrivetrain(int* leftMotorPins, int* rightMotorPins, int motorsPerSide)
+void createDrivetrain(Drivetrain *drivetrain, int frontLeftPin, int frontRightPin, int backleftPin, int backRightPin)
 {
-    Drivetrain drivetrain;
-
-    drivetrain.leftMotorPins = leftMotorPins;
-    drivetrain.rightMotorPins = rightMotorPins;
-    drivetrain.motorsPerSide = motorsPerSide;
-
-    return drivetrain;
+	drivetrain->frontLeftPin = frontLeftPin;
+	drivetrain->frontRightPin = frontRightPin;
+	drivetrain->backleftPin = backleftPin;
+	drivetrain->backRightPin = backRightPin;
 }
 
-void tankDrive(Drivetrain* drivetrain, int left, int right)
+void tankDrive(Drivetrain *drivetrain, int left, int right)
 {
-
+	// Reverses the right side by default!
+	motorSet(drivetrain->frontLeftPin, left);
+	motorSet(drivetrain->frontRightPin, -right);
+	motorSet(drivetrain->backleftPin, left);
+	motorSet(drivetrain->backRightPin, -right);
 }
 
-void arcadeDrive(Drivetrain* drivetrain, int power, int rotation)
+void arcadeDrive(Drivetrain *drivetrain, int power, int rotation)
 {
-    tankDrive(drivetrain, power + rotation, power - rotation);
+	tankDrive(drivetrain, power + rotation, power - rotation);
 }

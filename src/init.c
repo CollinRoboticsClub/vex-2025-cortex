@@ -8,6 +8,8 @@
  */
 
 #include "main.h"
+#include "pin_mappings.h"
+#include "subsystems/drivetrain.h"
 
 /*
  * Runs pre-initialization code. This function will be started in kernel mode one time while the
@@ -17,7 +19,10 @@
  * states (digitalWrite()) of limit switches, push buttons, and solenoids. It can also safely
  * configure a UART port (usartOpen()) but cannot set up an LCD (lcdInit()).
  */
-void initializeIO() {
+void initializeIO()
+{
+	pinMode(ELEVATOR_LOWER_LIMIT_SWITCH, INPUT);
+	pinMode(ELEVATOR_UPPER_LIMIT_SWITCH, INPUT);
 }
 
 /*
@@ -33,5 +38,15 @@ void initializeIO() {
  * will not start. An autonomous mode selection menu like the pre_auton() in other environments
  * can be implemented in this task if desired.
  */
-void initialize() {
+
+Drivetrain drivetrain;
+
+void initialize()
+{
+	createDrivetrain(
+		&drivetrain,
+		DRIVETRAIN_FRONT_LEFT_PIN,
+		DRIVETRAIN_FRONT_RIGHT_PIN,
+		DRIVETRAIN_BACK_LEFT_PIN,
+		DRIVETRAIN_BACK_RIGHT_PIN);
 }

@@ -8,6 +8,7 @@
  */
 
 #include "main.h"
+#include "subsystems/drivetrain.h"
 
 /*
  * Runs the user operator control code. This function will be started in its own task with the
@@ -26,9 +27,22 @@
  *
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
-void operatorControl() {
-	while (true) {
-		printf("Hello PROS User!\n");
+
+extern Drivetrain drivetrain;
+void operatorControl()
+{
+	while (true)
+	{
+		printf("In teleop :) Plug in a joystick! Uses Tank drive controls.\n");
+
+		// The first argument in here (1) refers to which controller to use -- driver or copilot.
+		// Second arg is the axis number. Reference the physical VEX Joystick for its axes; but:
+		// 1, 2, 3, 4 correspond to rx, ry, lx, and ly respectively ;)
+		int leftPower = joystickGetAnalog(1, 3);
+		int rightPower = joystickGetAnalog(1, 2);
+		// Using tank drive for debugging purposes -- helps with wiring and direction reversal issues (as opposed to arcade drive)
+		tankDrive(&drivetrain, leftPower, rightPower);
+
 		delay(20);
 	}
 }
