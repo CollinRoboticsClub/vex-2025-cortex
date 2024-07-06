@@ -33,12 +33,12 @@ typedef struct Wheel
 ```
 - Define functions that take in pointers, similar to Python's `self`
 ```c
-void createWheel(Wheel* wheel, int diameter, int width);
+void initWheel(Wheel* wheel, int diameter, int width);
 void spin(Wheel* wheel); // runs an animation or something... lol
 
 // example usage, even though this is a sort of redundant function:
 Wheel w;
-createWheel(&w, 10, 3);
+initWheel(&w, 10, 3);
 spin(&wheel);
 ```
 
@@ -54,7 +54,7 @@ Drivetrain drivetrain;
 ```
 2. **Initialize** it in `init.c`:
 ```c
-createDrivetrain(&drivetrain, [your params...]);
+initDrivetrain(&drivetrain, [your params...]);
 // or just use the raw struct fields when appropriate
 ```
 3. **Refer** to it with `extern` in other files, such as `auto.c` and `opcontrol.c`:

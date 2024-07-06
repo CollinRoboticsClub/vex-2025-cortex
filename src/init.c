@@ -43,7 +43,7 @@ Drivetrain drivetrain;
 
 void initialize()
 {
-	createDrivetrain(
+	initDrivetrain(
 		&drivetrain,
 		DRIVETRAIN_FRONT_LEFT_PIN,
 		DRIVETRAIN_FRONT_RIGHT_PIN,

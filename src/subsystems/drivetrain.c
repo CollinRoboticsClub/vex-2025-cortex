@@ -1,7 +1,7 @@
 #include "main.h"
 #include "drivetrain.h"
 
-void createDrivetrain(Drivetrain *drivetrain, int frontLeftPin, int frontRightPin, int backleftPin, int backRightPin)
+void initDrivetrain(Drivetrain *drivetrain, int frontLeftPin, int frontRightPin, int backleftPin, int backRightPin)
 {
 	drivetrain->frontLeftPin = frontLeftPin;
 	drivetrain->frontRightPin = frontRightPin;

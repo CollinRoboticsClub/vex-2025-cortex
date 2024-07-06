@@ -6,7 +6,7 @@ typedef struct Drivetrain
 } Drivetrain;
 
 // Global single instance of Drivetrain.
-// In init.c, call createDrivetrain() in initialize()
+// In init.c, call initDrivetrain() in initialize()
 // extern Drivetrain drivetrain;
 
 /// @brief Initializes and creates a `Drivetrain`.
@@ -15,7 +15,7 @@ typedef struct Drivetrain
 /// @param backleftPin
 /// @param backRightPin
 /// @return the created `Drivetrain`
-void createDrivetrain(Drivetrain *drivetrain, int frontLeftPin, int frontRightPin, int backleftPin, int backRightPin);
+void initDrivetrain(Drivetrain *drivetrain, int frontLeftPin, int frontRightPin, int backleftPin, int backRightPin);
 
 /// @brief Tank Drive: power is sent to the `left` and `right` sides directly. A joystick's leftY and rightY values can be used.
 /// @param drivetrain A `Drivetrain*` to move.
