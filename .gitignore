@@ -3,6 +3,8 @@ bin/
 
 # user-specific config
 .vscode
+.idea
 
-# VSCode C++ generates this
+# IDE-generated files
 compile_commands.json
+.cache
